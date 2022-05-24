@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.1/css/bootstrap.min.css} "/>
+        <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.1.0/css/all.css} "/>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Lista de Libros</h3>
+            <hr>
+            <button class="btn btn-primary" style="margin-bottom: 20px; " data-toggle="modal" data-target="#modalGuardar" data-whatever="@mdo">Add</button>
+            <div class="row">
+                <div class="col">
+                    <table class="table" id="tablita">
+                        <thead clas="thead-dark"> 
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">TITULO</th>
+                                <th scope="col">IDIOMA</th>
+                                <th scope="col">PÁGINAS</th>
+                                <th scope="col">DESCRIPCIÓN</th>
+                                <th scope="col">ID_AUTOR</th>
+                                <th scope="col">ID_EDITORIAL</th>
+                                <th scope="col" colspan="2">ACCION</th>
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Guardar Post -->
+        <div class="modal fade" id="modalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Libro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Titulo:</label>
+                                <input type="text" class="form-control" id="titulo" placeholder="Título">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Idioma:</label>
+                                <input type="text" class="form-control" id="idioma" placeholder="Idioma">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Páginas:</label>
+                                <input type="text" class="form-control" id="pag" placeholder="Paginas">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Descripción:</label>
+                                <input type="text" class="form-control" id="descripcion" placeholder="Descripcion">
+                            </div>
+                                       <div class="form-group">
+                                <label for="message-text" class="col-form-label">Id_Autor:</label>
+                                <input type="text" class="form-control" id="descripcion" placeholder="id_Autor">
+                            </div>
+                                                  <div class="form-group">
+                                <label for="message-text" class="col-form-label">id_Editorial</label>
+                                <input type="text" class="form-control" id="descripcion" placeholder="id_Editorial">
+                            </div>
+                        </form></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="guardar">Registrar Libro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Modificar Post -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Libro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Titulo:</label>
+                            <input type="text" class="form-control" id="editar_titulo" placeholder="Título">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Idioma:</label>
+                            <input type="text" class="form-control" id="editar_idioma" placeholder="Idioma">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Nro Paginas:</label>
+                            <input type="text" class="form-control" id="editar_pag" placeholder="Paginas">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Descripcion:</label>
+                            <input type="text" class="form-control" id="editar_descripcion" placeholder="Descripcion">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Id_Autor:</label>
+                            <input type="text" class="form-control" id="editar_autor" placeholder="Autor">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Id_Editorial:</label>
+                            <input type="text" class="form-control" id="editar_editorial" placeholder="Editorial">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="modificar">Modificar Libro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <script th:src="@{/js/libro.js}"></script>
+</body>
+</html>
